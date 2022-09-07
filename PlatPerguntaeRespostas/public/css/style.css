@@ -1,0 +1,8 @@
+body, html{
+    background-color: rgb(122, 119, 161);
+    height: 100%;
+
+}
+#formPerguntas{
+    margin-top: 5vh;
+}
