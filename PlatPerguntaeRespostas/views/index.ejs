@@ -2,12 +2,23 @@
 <body>
     <%- include("partials/navbar.ejs") %>
 
-<h1>Estilo boot</h1>
+<br>
+<div class="container">
+    
 
-<h2><a href="/perguntas">Fazer Pergunta</a></h2>
+        
 
-<ul>
-    <li><%= perguntas  %></li>
-</ul>
+<h1>Perguntas</h1><a href="/perguntas" class="btn btn-primary">Fazer Nova Pergunta</a>
+<hr>
+     <% perguntas.forEach(pergunta => { %>
+        <div class="card-body">   
+        <h3><%= pergunta.titulo %></h3>
+    
+         </div>
+         <div class="card-footer">
+           <a href="/pergunta/<%= pergunta.id %>"> <button class="btn btn-primary">Responder</button>
+         </div></a>
+   <%} ); %>
+</div>
 </body>
 <%- include("partials/footer.ejs") %>

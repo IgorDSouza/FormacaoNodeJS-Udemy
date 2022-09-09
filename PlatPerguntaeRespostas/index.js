@@ -57,7 +57,7 @@ app.set('view engine', 'ejs')// definindo EJS como renderizador de html. Padrão
 
 app.get('/', function(req,res){
 
-    Pergunta.findAll({raw:true}).then(perguntas =>{
+    Pergunta.findAll({raw:true,order:[['id','DESC']]/*ORDENA OS DADOS EM ORDEM DECRESCENTE OU CRESCENTE(ASC)*/}).then(perguntas =>{
         console.log(perguntas);
         res.render('index',{
             perguntas:perguntas
@@ -77,6 +77,19 @@ app.get('/perguntas', function(req,res){
         });
     });
 
+    app.get('/pergunta/:id', function(req,res){   
+        var id = req.params.id;
+        Pergunta.findOne/* faz a busca no banco de dados*/({
+            where:{id:id}//condições da busca
+        }).then(pergunta =>{
+            if(pergunta != undefined){// encontrada
+                res.render("pergunta",{pergunta:pergunta});
+                
+            }else{// n encontrada
+                res.redirect("/");
+            }
+        })
+    });
 app.post('/salvaperguntas', function(req,res){ // .post pega informações envadas pelo formulário
     
     var titulo = req.body.titulo;
