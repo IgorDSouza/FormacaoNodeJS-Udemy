@@ -12,6 +12,7 @@ const perguntaModel=require('./database/Perguntas')
 
 const connection= require('./database/database');
 const Pergunta = require("./database/Perguntas");
+const Resposta = require("./database/Resposta");
 
 connection
     .authenticate()
@@ -83,7 +84,15 @@ app.get('/perguntas', function(req,res){
             where:{id:id}//condições da busca
         }).then(pergunta =>{
             if(pergunta != undefined){// encontrada
-                res.render("pergunta",{pergunta:pergunta});
+
+                Resposta.findAll({
+                    where:{perguntaId:pergunta.id}
+                }).then(respostas=>{
+                    res.render("pergunta",{pergunta:pergunta,
+                    respostas:respostas
+                    });
+                });
+
                 
             }else{// n encontrada
                 res.redirect("/");
@@ -100,11 +109,23 @@ app.post('/salvaperguntas', function(req,res){ // .post pega informações envad
         descricao:descricao
     }) // inserindo dados no banco de dados
     .then(()=>{
-        res.redirect("/")
+        res.redirect("/");
     }) // após os dados serem enviados, o usuario vai redirecionado para a primeira pagina
 
 
     });
+
+app.post("/responder", function(req,res){
+    var corpo = req.body.corpo; // recebe o conteudo do campo 'corpo'
+    var perguntaId= req.body.perguntaId;// recebe o conteudo do campo 'pergunta'
+    Resposta.create({
+        corpo:corpo,
+        perguntaId:perguntaId
+    })
+    .then(()=>{
+        res.redirect("/pergunta/"+perguntaId);
+    })
+})
     //npm instal body-parser --save para baixar a biblioteca que salva as informações post
 
     //npm install --save sequelize para manipular o sql com codigos js

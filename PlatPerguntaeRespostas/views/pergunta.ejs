@@ -10,11 +10,19 @@
 <h1><%= pergunta.titulo %></h1>
 <p><%= pergunta.descricao %></p>
 <hr>
-<input type="text" name="resposta" id="resposta" placeholder="Responder">
-<button class="btn btn-primary">Responder</button>
-
+<form action="/responder" method="post">
+<textarea name="corpo" id="corpo" placeholder="Responder"></textarea>
+<input type="hidden" name="perguntaId" id="perguntaId" value="<%= pergunta.id %>">
+<button type="submit" class="btn btn-primary">Responder</button>
+</form>
+<hr>
 <div class="respostas">
-    
+    <h3>Respostas Atuais</h3>
+    <% respostas.forEach(resposta =>{ %>
+        
+      <%= resposta.corpo %>
+        
+  <% }) %>
 </div>
 </div>
 </body>
