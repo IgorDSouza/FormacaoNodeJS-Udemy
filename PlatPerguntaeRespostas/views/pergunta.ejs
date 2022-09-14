@@ -1,8 +1,6 @@
 <%- include("partials/head.ejs") %>
 <body>
-    <%- include("partials/navbar.ejs") %>
 
-<br>
 <div class="container">
     
 
@@ -11,7 +9,7 @@
 <p><%= pergunta.descricao %></p>
 <hr>
 <form action="/responder" method="post">
-<textarea name="corpo" id="corpo" placeholder="Responder"></textarea>
+<textarea style="width: 500px;" name="corpo" id="corpo" placeholder="Responder"></textarea>
 <input type="hidden" name="perguntaId" id="perguntaId" value="<%= pergunta.id %>">
 <button type="submit" class="btn btn-primary">Responder</button>
 </form>
@@ -19,8 +17,13 @@
 <div class="respostas">
     <h3>Respostas Atuais</h3>
     <% respostas.forEach(resposta =>{ %>
-        
-      <%= resposta.corpo %>
+        <ul>
+
+          <li><%= resposta.corpo %></li>
+          
+
+        </ul>
+      
         
   <% }) %>
 </div>

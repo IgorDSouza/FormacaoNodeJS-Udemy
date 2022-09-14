@@ -86,6 +86,7 @@ app.get('/perguntas', function(req,res){
             if(pergunta != undefined){// encontrada
 
                 Resposta.findAll({
+                    order:[['id','DESC']],
                     where:{perguntaId:pergunta.id}
                 }).then(respostas=>{
                     res.render("pergunta",{pergunta:pergunta,

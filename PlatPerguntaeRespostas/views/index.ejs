@@ -1,24 +1,30 @@
 <%- include("partials/head.ejs") %>
 <body>
-    <%- include("partials/navbar.ejs") %>
 
-<br>
-<div class="container">
-    
+ <div class="bg">
+  <div class="container"> 
+    <div class="title">
+      <h1>DevQuest <img src="img/icon.png" style="width : 100px" alt=""> </h1>
+      <h3>A ajuda necessária em suas 'Quests' diarias!</h3>
+      <a href="/perguntas" class="btn btn-primary">Fazer Pergunta</a>   
+    </div>
+    </div>
+ </div> 
 
+ <div class="container">     
+  <div class="perguntas" >
+    <h1><img src="img/interrogaicon.png" style="width: 80px ;" alt="">Perguntas<img src="img/interrogaicon.png" style="width: 80px ;" alt=""></h1>
+    <hr>
+        <% perguntas.forEach(pergunta => { %>
+            <div class="card-body">   
+            <h3><%= pergunta.titulo %></h3>
         
-
-<h1>Perguntas</h1><a href="/perguntas" class="btn btn-primary">Fazer Nova Pergunta</a>
-<hr>
-     <% perguntas.forEach(pergunta => { %>
-        <div class="card-body">   
-        <h3><%= pergunta.titulo %></h3>
-    
-         </div>
-         <div class="card-footer">
-           <a href="/pergunta/<%= pergunta.id %>"> <button class="btn btn-primary">Responder</button>
-         </div></a>
-   <%} ); %>
+            </div>
+            <div class="card-footer">
+              <a href="/pergunta/<%= pergunta.id %>"> <button class="btn btn-primary">Responder</button>
+            </div></a>
+      <%} ); %>
+  </div>
 </div>
 </body>
 <%- include("partials/footer.ejs") %>

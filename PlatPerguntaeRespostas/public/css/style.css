@@ -1,8 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
 body, html{
-    background-color: rgb(122, 119, 161);
     height: 100%;
+    background-color: black;
+
+}
+.navbar{
+    background-color: #2B3510;
+    justify-content: center !important;
+}
+.navbar a{
+    color: black;
+    font-size: 25px !important;
 
 }
 #formPerguntas{
     margin-top: 5vh;
+}
+.container{
+    align-items: center;
+}
+.title{
+    text-align: center;
+    color: rgb(5, 5, 5);
+    padding: 60px 1px;
+    border: 3px solid black ;
+    border-radius: 15px;
+    background-color:rgba(192, 88, 18, 0.675) ;
+
+}
+.title h1{
+    font-size: 100px;
+    text-shadow: -5px 2px #111;
+    font-family: 'Playfair Display', serif;
+
+}
+.btn-primary{
+    background-color: rgb(88, 37, 2);
+    text-decoration: none !important;
+    border-color: black !important;
+}
+.btn-primary:hover{
+    background-color:rgb(51, 22, 3); ;
+}
+.perguntas{
+    margin-top: 8%;
+    text-align: center;
+    background-color:rgba(192, 88, 18) ;
+     padding: 15px 1px;
+    border: 3px solid black ;
+    border-radius: 15px;
+    color: black;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+
+}
+.perguntas h1{
+    background-color: rgb(88, 37, 2);
+    font-weight: 900;
+    padding: 20px;
+    color: black;
+}
+.bg{
+    background-image: url('../img/bg.jpeg');
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 67px 0px;
 }
