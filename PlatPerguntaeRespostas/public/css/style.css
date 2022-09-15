@@ -2,30 +2,37 @@
 body, html{
     height: 100%;
     background-color: black;
+    color: black;
 
 }
 .navbar{
-    background-color: #2B3510;
-    justify-content: center !important;
+    justify-content: center;
+    text-decoration: none;
 }
-.navbar a{
-    color: black;
-    font-size: 25px !important;
+.navbar a {
+    color: black !important;
 
 }
+.bgbrown{
+    background-color:rgba(192, 88, 18, 0.675) ;
+}
+
 #formPerguntas{
     margin-top: 5vh;
+    color: black;
+    font-family: 'Playfair Display', serif;
 }
-.container{
-    align-items: center;
+.font-bold{
+    font-weight: bolder;
+
 }
+
 .title{
     text-align: center;
     color: rgb(5, 5, 5);
     padding: 60px 1px;
     border: 3px solid black ;
     border-radius: 15px;
-    background-color:rgba(192, 88, 18, 0.675) ;
 
 }
 .title h1{
@@ -67,4 +74,15 @@ body, html{
     align-items: center;
     justify-content: center;
     padding: 67px 0px;
+}
+.responder{
+    text-align: center;
+    margin-top: 10%;
+    font-family: 'Playfair Display', serif;
+
+}
+.respostas{
+    width: 50%;
+    font-family: 'Playfair Display', serif;
+
 }

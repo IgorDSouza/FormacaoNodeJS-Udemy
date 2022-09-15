@@ -1,18 +1,20 @@
 <%- include("partials/head.ejs");%>
 <body>
+    <%- include("partials/navbar.ejs") %>
+
 <div class="container">
-    <div class="card"  id="formPerguntas" >
-        <div class="card-header">
-            <h3>Realizar Perguntas</h3>
+    <div class="card font-bold bgbrown"  id="formPerguntas" >
+        <div class="card-header" style="text-align:center ;">
+            <h1><img src="img/questicon.png" style="width: 100px; "alt="">Realizar Perguntas <img src="img/questicon.png" style="width: 100px; "alt=""></h1>
 
         </div>
-        <div class="card-body">
+        <div class="card-body" style="text-align:center ;">
             <form method="POST" action="/salvaperguntas">
-                <label for="titulo"> Titulo</label>
-                <input type="text" name="titulo" id="titulo" placeholder="Titulo" class="form-control">
-                <label for="pergunta"> Pergunta</label>
-                <textarea name="pergunta" id="pergunta" cols="30" rows="1" class="form-control" placeholder="Descreva sua pergunta aqui"></textarea><br>
-                <button class="btn btn-success">Enviar</button>
+                <label for="titulo"> <h3>Titulo</h3></label>
+                <input type="text" name="titulo" id="titulo" placeholder="Titulo" class="form-control font-bold" required>
+                <label for="pergunta"> <h3>Pergunta</h3></label>
+                <textarea name="pergunta" id="pergunta" cols="30" rows="1" class="form-control font-bold" placeholder="Descreva sua pergunta aqui" required></textarea><br>
+                <button class="btn btn-primary">Enviar</button>
             </form>
         </div>
     </div>

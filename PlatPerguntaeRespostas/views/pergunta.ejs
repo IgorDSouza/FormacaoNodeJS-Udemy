@@ -1,32 +1,36 @@
 <%- include("partials/head.ejs") %>
 <body>
+  <%- include("partials/navbar.ejs") %>
 
 <div class="container">
     
+  <div class="responder bgbrown font-bold">
+    <hr>
+    <h1><img src="/img/respicon.png" style="width: 80px; " alt=""> <%= pergunta.titulo %> </h1>
+    <p><%= pergunta.descricao %></p>
+    <hr>
+    <form action="/responder" method="post">
+      <textarea style="width: 500px;" name="corpo" id="corpo" class="font-bold" placeholder="Responder" required></textarea>
+      <input type="hidden" name="perguntaId" id="perguntaId" value="<%= pergunta.id %>"> <br>
+      <button type="submit" class="btn btn-primary">Responder</button>
+    </form>
+    <hr>
+    <div style="display: flex ; justify-content:center">
+      <div class="respostas font-bold">
+          <h3>Respostas Atuais</h3>
+          <% respostas.forEach(resposta =>{ %>
+              <ul>
 
-<hr>
-<h1><%= pergunta.titulo %></h1>
-<p><%= pergunta.descricao %></p>
-<hr>
-<form action="/responder" method="post">
-<textarea style="width: 500px;" name="corpo" id="corpo" placeholder="Responder"></textarea>
-<input type="hidden" name="perguntaId" id="perguntaId" value="<%= pergunta.id %>">
-<button type="submit" class="btn btn-primary">Responder</button>
-</form>
-<hr>
-<div class="respostas">
-    <h3>Respostas Atuais</h3>
-    <% respostas.forEach(resposta =>{ %>
-        <ul>
+                <li><%= resposta.corpo %></li>
+                
 
-          <li><%= resposta.corpo %></li>
-          
-
-        </ul>
-      
-        
-  <% }) %>
-</div>
+              </ul>
+            
+              
+        <% }) %>
+      </div>
+    </div>
+  </div>
 </div>
 </body>
 <%- include("partials/footer.ejs") %>
